@@ -10,7 +10,8 @@
 
   function setIcon(condition: string) {
     switch (true) {
-      case condition.toLowerCase().includes("clear"):
+      case condition.toLowerCase().includes("clear") ||
+        condition.toLowerCase().includes("sunny"):
         src = "/icons/sun.png";
         break;
       case condition.toLowerCase().includes("rain"):
@@ -83,8 +84,7 @@
 
 <div id="block">
   <img {src} alt="Weather icon" />
-  <p>Temperature {weather.deg}°C</p>
-  <p>Feels like {weather.feels}°C</p>
+  <p>Temperature {weather.deg}°C<br />Feels like {weather.feels}°C</p>
 </div>
 
 <style>
@@ -92,7 +92,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       "Helvetica Neue", Arial, sans-serif;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   #block {
     color: black;
@@ -109,5 +109,8 @@
     justify-content: center; /* Center items vertically */
     text-align: center; /* Center text inside the div */
     box-align: center;
+  }
+  img {
+    padding-top: 20px;
   }
 </style>
