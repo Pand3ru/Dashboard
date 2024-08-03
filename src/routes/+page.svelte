@@ -1,5 +1,17 @@
 <script>
-  import Nested from './Weather.svelte'
+  import Nested from "./Weather.svelte";
 </script>
 
-<Nested />
+<div id="nested-container">
+  <Nested />
+</div>
+
+<style>
+  #nested-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15%;
+    transform: scale(0.8);
+  }
+</style>
