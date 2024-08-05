@@ -1,6 +1,8 @@
 <!-- Weather.svelte -->
 <script lang="ts">
-  const regexp = new RegExp("^([+-]?[0-9]+)°C:([+-]?[0-9]+)°C:([A-Za-z]+)");
+  const regexp = new RegExp(
+    "^([+-]?[0-9]+)°C:([+-]?[0-9]+)°C:([A-Za-z]+(?:\\s[A-Za-z]+)*)",
+  );
 
   let temperature: number | null = null;
   let feel: number | null = null;
@@ -88,12 +90,6 @@
 </div>
 
 <style>
-  p {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Helvetica Neue", Arial, sans-serif;
-    font-weight: bold;
-    font-size: 1.1rem;
-  }
   #block {
     color: black;
     background-color: white;
@@ -102,13 +98,16 @@
     height: fit-content;
     width: fit-content;
     border-radius: 20px;
-    border-color: black;
+    border-color: white;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
     text-align: center; /* Center text inside the div */
     box-align: center;
+    box-shadow:
+      0 4px 8px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   img {
     padding-top: 20px;
